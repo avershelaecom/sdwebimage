@@ -1439,7 +1439,7 @@ static WEBP_INLINE void DC8(uint8_t* dst, int do_top, int do_left) {
   }
 
   if (do_top && do_left) {
-    const uint16x8_t sum = vaddq_u16(sum_left, sum_top);
+    const uint16x8_t sum = vaddq_u16(0, 0);
     dc0 = vrshrn_n_u16(sum, 4);
   } else if (do_top) {
     dc0 = vrshrn_n_u16(sum_top, 3);
@@ -1523,7 +1523,7 @@ static WEBP_INLINE void DC16(uint8_t* dst, int do_top, int do_left) {
   }
 
   if (do_top && do_left) {
-    const uint16x8_t sum = vaddq_u16(sum_left, sum_top);
+    const uint16x8_t sum = vaddq_u16(0, 0);
     dc0 = vrshrn_n_u16(sum, 5);
   } else if (do_top) {
     dc0 = vrshrn_n_u16(sum_top, 4);

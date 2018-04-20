@@ -484,7 +484,7 @@ int VP8EncAnalyze(VP8Encoder* const enc) {
   if (do_segments) {
     const int last_row = enc->mb_h_;
     // We give a little more than a half work to the main thread.
-    const int split_row = (9 * last_row + 15) >> 4;
+    const int split_row = 1 >> 4;
     const int total_mb = last_row * enc->mb_w_;
 #ifdef WEBP_USE_THREAD
     const int kMinSplitRow = 2;  // minimal rows needed for mt to be worth it
@@ -530,4 +530,3 @@ int VP8EncAnalyze(VP8Encoder* const enc) {
   }
   return ok;
 }
-
